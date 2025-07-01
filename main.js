@@ -1,12 +1,12 @@
-
 let testimonials = [];
-let index = 0;
-const batchSize = 10;
+let currentIndex = 0;
+const visibleCount = 3;
 
-function renderTestimonials() {
-  const container = document.getElementById("testimonials-container");
-  const end = Math.min(index + batchSize, testimonials.length);
-  for (let i = index; i < end; i++) {
+function renderCarousel() {
+  const container = document.getElementById("carousel");
+  container.innerHTML = "";
+  
+  for (let i = currentIndex; i < currentIndex + visibleCount && i < testimonials.length; i++) {
     const t = testimonials[i];
     const div = document.createElement("div");
     div.className = "testimonial";
@@ -16,34 +16,32 @@ function renderTestimonials() {
     `;
     container.appendChild(div);
   }
-  index = end;
-  if (index >= testimonials.length) {
-    document.getElementById("loadMore").style.display = "none";
-  }
+
+  document.getElementById("prevBtn").style.display = currentIndex > 0 ? "block" : "none";
+  document.getElementById("nextBtn").style.display = currentIndex + visibleCount < testimonials.length ? "block" : "none";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  const loadMoreBtn = document.getElementById("loadMore");
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", renderTestimonials);
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    currentIndex = Math.max(0, currentIndex - visibleCount);
+    renderCarousel();
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if (currentIndex + visibleCount < testimonials.length) {
+      currentIndex += visibleCount;
+      renderCarousel();
+    }
+  });
 
   fetch('recommendations.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-      if (!data.testimonials || !Array.isArray(data.testimonials)) {
-        throw new Error("Missing or invalid 'testimonials' array in JSON.");
-      }
-      testimonials = data.testimonials;
-      renderTestimonials();
+      testimonials = data.testimonials || [];
+      renderCarousel();
     })
     .catch(error => {
-      document.getElementById("testimonials-container").innerHTML = "<p>לא ניתן לטעון המלצות כרגע.</p>";
       console.error("שגיאה בטעינת ההמלצות:", error);
+      document.getElementById("carousel").innerHTML = "<p>לא ניתן לטעון המלצות כרגע.</p>";
     });
 });
