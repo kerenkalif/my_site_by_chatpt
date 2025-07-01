@@ -41,7 +41,7 @@ document.getElementById("prevBtn").addEventListener("click", () => {
   }
 });
 
-fetch("recommendations.json")
+fetch("./recommendations.json")
   .then((response) => response.json())
   .then((data) => {
     testimonials = data.testimonials;
