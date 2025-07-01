@@ -5,7 +5,10 @@ function renderTestimonials() {
   const container = document.getElementById("testimonials-container");
   container.innerHTML = "";
 
-  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 3);
+  const isMobile = window.innerWidth <= 768;
+const itemsPerPage = isMobile ? 1 : 3;
+const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + itemsPerPage);
+
 
   visibleTestimonials.forEach((t, idx) => {
     const div = document.createElement("div");
