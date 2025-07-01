@@ -29,6 +29,20 @@ function renderTestimonials() {
       <div class="testimonial-meta">${metaText}</div>
       <div class="testimonial-content">${t.content}</div>
     `;
+
+    const contentDiv = div.querySelector(".testimonial-content");
+
+    contentDiv.addEventListener("scroll", () => {
+      const isScrolledToBottom =
+        contentDiv.scrollTop + contentDiv.clientHeight >= contentDiv.scrollHeight - 1;
+
+      if (isScrolledToBottom) {
+        contentDiv.classList.add("scrolled");
+      } else {
+        contentDiv.classList.remove("scrolled");
+      }
+    });
+    
     container.appendChild(div);
   });
 }
