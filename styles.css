@@ -176,17 +176,36 @@ footer {
   overflow-y: auto;
   flex-grow: 1;
   padding-top: 0.5rem;
+  position: relative;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE and Edge */
 }
 
 .testimonial-content::-webkit-scrollbar {
-  width: 6px;
+  display: none;                /* Chrome, Safari */
 }
 .testimonial-content::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 3px;
 }
 
+/* אפקט fade בתחתית */
+.testimonial-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  background: linear-gradient(to top, #f9f9f9, rgba(249, 249, 249, 0));
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
 
+/* כשגוללים – מעלימים את הטשטוש */
+.testimonial-content.scrolled::after {
+  opacity: 0;
+}
 
 #prevBtn, #nextBtn {
   background-color: #00838f;
