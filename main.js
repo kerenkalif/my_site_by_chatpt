@@ -52,18 +52,25 @@ const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + item
 
 
 document.getElementById("nextBtn").addEventListener("click", () => {
-  if (currentIndex + 3 < testimonials.length) {
-    currentIndex += 3;
+  const isMobile = window.innerWidth <= 768;
+  const step = isMobile ? 1 : 3;
+
+  if (currentIndex + step < testimonials.length) {
+    currentIndex += step;
     renderTestimonials();
   }
 });
 
 document.getElementById("prevBtn").addEventListener("click", () => {
-  if (currentIndex - 3 >= 0) {
-    currentIndex -= 3;
+  const isMobile = window.innerWidth <= 768;
+  const step = isMobile ? 1 : 3;
+
+  if (currentIndex - step >= 0) {
+    currentIndex -= step;
     renderTestimonials();
   }
 });
+
 
 fetch("./recommendations.json")
   .then((response) => response.json())
@@ -76,3 +83,9 @@ fetch("./recommendations.json")
       "<p>לא ניתן לטעון המלצות.</p>";
     console.error("Error loading testimonials:", error);
   });
+
+window.addEventListener("resize", () => {
+  currentIndex = 0;
+  renderTestimonials();
+});
+
