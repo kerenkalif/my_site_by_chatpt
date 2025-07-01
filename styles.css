@@ -1,0 +1,125 @@
+
+body {
+  font-family: 'Alef', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+header {
+  background-color: #ffd54f;
+  padding: 2rem;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  color: #00838f;
+  font-size: 2.5rem;
+}
+header p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+header img {
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  width: 180px;
+  height: auto;
+}
+.buttons {
+  margin-top: 1.5rem;
+}
+.buttons a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #00838f;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+}
+section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.section-title {
+  text-align: center;
+  color: #00838f;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+.about, .testimonials, .subscribe, .blog, .courses-paid, .signup, .workshops {
+  text-align: center;
+  margin-top: 3rem;
+}
+.subscribe input[type="email"] {
+  padding: 0.8rem;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.subscribe button {
+  padding: 0.8rem 1.2rem;
+  background-color: #ffd54f;
+  border: none;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.more-links {
+  margin-top: 3rem;
+  text-align: center;
+}
+.more-links a {
+  display: inline-block;
+  margin: 0.5rem;
+  color: #00838f;
+  text-decoration: underline;
+}
+.testimonial {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+.testimonial .meta {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+#loadMore {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.8rem 1.5rem;
+  background-color: #00838f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+}
