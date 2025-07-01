@@ -219,3 +219,78 @@ footer {
     flex: 0 0 80%;
   }
 }
+
+
+/* ===== עיצוב המלצות ===== */
+.carousel {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.testimonial-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 300px;
+  min-height: 250px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-meta {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.testimonial-number {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+#testimonials {
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+#prevBtn, #nextBtn {
+  background-color: #00838f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+  background-color: #005f66;
+}
+
+#prevBtn {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#nextBtn {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
