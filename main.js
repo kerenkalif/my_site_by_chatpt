@@ -12,20 +12,35 @@ function renderTestimonials() {
     div.className = "testimonial-card";
     const number = currentIndex + idx + 1;
 
-    const metaText = t.role
+    /*const metaText = t.role
       ? t.institution
         ? `${t.role} | ${t.institution}`
         : `${t.role}`
-      : t.institution || "";
+      : t.institution || "";*/
 
-    div.innerHTML = `
+    const metaText = `
+  <div class="role">${t.role || ""}</div>
+  <div class="institution">${t.institution || ""}</div>
+`;
+
+
+  /*  div.innerHTML = `
       <div class="testimonial-number">#${number}</div>
       <div class="testimonial-meta">${metaText}</div>
       <div class="testimonial-content">${t.content}</div>
     `;
     container.appendChild(div);
   });
+}*/
+
+<div class="testimonial-meta">${metaText}</div>
+div.innerHTML = `
+      <div class="testimonial-meta">${metaText}</div>
+    `;
+    container.appendChild(div);
+  });
 }
+
 
 document.getElementById("nextBtn").addEventListener("click", () => {
   if (currentIndex + 3 < testimonials.length) {
