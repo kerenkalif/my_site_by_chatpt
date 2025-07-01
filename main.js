@@ -1,47 +1,54 @@
 let testimonials = [];
 let currentIndex = 0;
-const visibleCount = 3;
 
-function renderCarousel() {
-  const container = document.getElementById("carousel");
+function renderTestimonials() {
+  const container = document.getElementById("testimonials-container");
   container.innerHTML = "";
-  
-  for (let i = currentIndex; i < currentIndex + visibleCount && i < testimonials.length; i++) {
-    const t = testimonials[i];
+
+  const visibleTestimonials = testimonials.slice(currentIndex, currentIndex + 3);
+
+  visibleTestimonials.forEach((t, idx) => {
     const div = document.createElement("div");
-    div.className = "testimonial";
+    div.className = "testimonial-card";
+    const number = currentIndex + idx + 1;
+
+    const metaText = t.role
+      ? t.institution
+        ? `${t.role} | ${t.institution}`
+        : `${t.role}`
+      : t.institution || "";
+
     div.innerHTML = `
-      <div class="meta">${t.role ? t.role + " | " : ""}${t.institution || ""}</div>
-      <div class="content">${t.content}</div>
+      <div class="testimonial-number">#${number}</div>
+      <div class="testimonial-meta">${metaText}</div>
+      <div class="testimonial-content">${t.content}</div>
     `;
     container.appendChild(div);
-  }
-
-  document.getElementById("prevBtn").style.display = currentIndex > 0 ? "block" : "none";
-  document.getElementById("nextBtn").style.display = currentIndex + visibleCount < testimonials.length ? "block" : "none";
+  });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    currentIndex = Math.max(0, currentIndex - visibleCount);
-    renderCarousel();
-  });
-
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    if (currentIndex + visibleCount < testimonials.length) {
-      currentIndex += visibleCount;
-      renderCarousel();
-    }
-  });
-
-  fetch('recommendations.json')
-    .then(response => response.json())
-    .then(data => {
-      testimonials = data.testimonials || [];
-      renderCarousel();
-    })
-    .catch(error => {
-      console.error("שגיאה בטעינת ההמלצות:", error);
-      document.getElementById("carousel").innerHTML = "<p>לא ניתן לטעון המלצות כרגע.</p>";
-    });
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (currentIndex + 3 < testimonials.length) {
+    currentIndex += 3;
+    renderTestimonials();
+  }
 });
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentIndex - 3 >= 0) {
+    currentIndex -= 3;
+    renderTestimonials();
+  }
+});
+
+fetch("recommendations.json")
+  .then((response) => response.json())
+  .then((data) => {
+    testimonials = data.testimonials;
+    renderTestimonials();
+  })
+  .catch((error) => {
+    document.getElementById("testimonials-container").innerHTML =
+      "<p>לא ניתן לטעון המלצות.</p>";
+    console.error("Error loading testimonials:", error);
+  });
