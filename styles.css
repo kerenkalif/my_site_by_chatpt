@@ -1,76 +1,57 @@
-/* בסיס כללי לעמוד */
 body {
   font-family: 'Alef', sans-serif;
   margin: 0;
-  padding: 0;
   background-color: #f9f9f9;
   color: #333;
-  direction: rtl;
 }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
-
-/* כותרת עליונה */
 header {
   background-color: #ffd54f;
+  padding: 2rem;
   text-align: center;
-  padding: 2rem 1rem;
 }
-
 header h1 {
+  margin: 0;
   color: #00838f;
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
 }
-
 header p {
   font-size: 1.2rem;
-  margin-top: 0;
+  margin-top: 0.5rem;
 }
-
-/* אזור קישורים */
+header img {
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  width: 180px;
+  height: auto;
+}
 .buttons {
   margin-top: 1.5rem;
 }
-
 .buttons a {
   display: inline-block;
-  margin: 0.5rem;
+  margin: 0 0.5rem;
   padding: 0.8rem 1.5rem;
   background-color: #00838f;
   color: white;
   text-decoration: none;
   border-radius: 25px;
-  transition: background-color 0.3s ease;
 }
-
-.buttons a:hover {
-  background-color: #006064;
-}
-
-/* מבנה סקשנים */
 section {
   padding: 3rem 1rem;
   max-width: 1000px;
   margin: auto;
 }
-
 .section-title {
   text-align: center;
   color: #00838f;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
-
-/* תצוגת כרטיסים */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
-
 .card {
   background-color: white;
   padding: 2rem;
@@ -78,75 +59,28 @@ section {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   text-align: center;
 }
-
 .card img {
   width: 60px;
   height: 60px;
   margin-bottom: 1rem;
 }
-
-/* עדויות */
-.testimonials {
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+.about, .testimonials, .subscribe, .blog, .courses-paid, .signup, .workshops {
   text-align: center;
   margin-top: 3rem;
 }
-
-.testimonial {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  margin: 1rem;
-  flex: 0 0 90%;
-  box-sizing: border-box;
-  text-align: right;
-}
-
-.testimonial .meta {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-#testimonial-carousel {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  justify-content: center;
-}
-
-#testimonial-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.testimonial-nav {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.testimonial-nav button {
-  background-color: #00838f;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  margin: 0 0.3rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.testimonial-nav button:hover {
-  background-color: #006064;
-}
-
-/* טופס הרשמה */
 .subscribe input[type="email"] {
   padding: 0.8rem;
   width: 250px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 1rem;
 }
-
 .subscribe button {
   padding: 0.8rem 1.2rem;
   background-color: #ffd54f;
@@ -155,51 +89,81 @@ section {
   border-radius: 4px;
   cursor: pointer;
 }
-
-/* קישורים נוספים */
 .more-links {
-  text-align: center;
   margin-top: 3rem;
+  text-align: center;
 }
-
 .more-links a {
   display: inline-block;
   margin: 0.5rem;
   color: #00838f;
   text-decoration: underline;
 }
-
-/* פוטר */
-footer {
-  background-color: #333;
+.testimonial {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+.testimonial .meta {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+#loadMore {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.8rem 1.5rem;
+  background-color: #00838f;
   color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-/* רספונסיביות */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.testimonial {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1.2rem;
+  min-width: 30%;
+  max-width: 30%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #00838f;
+  padding: 0 1rem;
+}
+
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  header p {
-    font-size: 1rem;
-  }
-
   .testimonial {
-    flex: 0 0 100%;
-  }
-
-  .buttons a,
-  .subscribe input[type="email"],
-  .subscribe button {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
+    min-width: 90%;
+    max-width: 90%;
   }
 }
