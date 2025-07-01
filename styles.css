@@ -240,7 +240,7 @@ footer {
 
 
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .testimonial-card {
     width: 90%;
     min-width: 90%;
@@ -249,5 +249,20 @@ footer {
   .carousel {
     flex-wrap: wrap;
   }
+}*/
+@media (max-width: 768px) {
+  .carousel {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-card {
+    flex: 0 0 90%;
+    max-width: 90%;
+    scroll-snap-align: start;
+  }
 }
+
 
