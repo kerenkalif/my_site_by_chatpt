@@ -117,14 +117,24 @@ footer {
   position: relative;
 }
 
-.carousel {
+/*.carousel {
   display: flex;
   justify-content: center;
   align-items: stretch;
   gap: 1.5rem;
   flex-wrap: wrap;
   margin: 2rem 0;
+}*/
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
+
 
 .testimonial-card {
   background-color: #f9f9f9;
@@ -142,6 +152,8 @@ footer {
   justify-content: flex-start;
   align-items: stretch;
   box-sizing: border-box;
+  min-width: 30%;
+  max-width: 30%;
 }
 
 
@@ -220,7 +232,12 @@ footer {
 
 @media (max-width: 768px) {
   .testimonial-card {
-    max-width: 90%;
+    width: 90%;
     min-width: 90%;
+    max-width: 90%;
+  }
+  .carousel {
+    flex-wrap: wrap;
   }
 }
+
