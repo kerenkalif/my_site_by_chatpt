@@ -144,10 +144,22 @@ footer {
 }
 
 .testimonial-meta {
-  font-weight: bold;
+  min-height: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 0.5rem;
   color: #444;
+  font-weight: bold;
+  line-height: 1.4;
 }
+
+.testimonial-meta .role,
+.testimonial-meta .institution {
+  white-space: nowrap;
+}
+
 
 .testimonial-number {
   font-size: 0.9rem;
