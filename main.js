@@ -24,18 +24,10 @@ function renderTestimonials() {
 `;
 
 
-  /*  div.innerHTML = `
+  div.innerHTML = `
       <div class="testimonial-number">#${number}</div>
       <div class="testimonial-meta">${metaText}</div>
       <div class="testimonial-content">${t.content}</div>
-    `;
-    container.appendChild(div);
-  });
-}*/
-
-<div class="testimonial-meta">${metaText}</div>
-div.innerHTML = `
-      <div class="testimonial-meta">${metaText}</div>
     `;
     container.appendChild(div);
   });
