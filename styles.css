@@ -131,17 +131,19 @@ footer {
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 1.5rem;
-  max-width: 300px;
-  min-height: 250px;
+  width: 30%;
+  height: 340px; /* גובה אחיד לכרטיס */
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   font-size: 1rem;
   line-height: 1.6;
   direction: rtl;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  box-sizing: border-box;
 }
+
 
 .testimonial-meta {
   min-height: 3em;
@@ -166,6 +168,22 @@ footer {
   color: #888;
   margin-bottom: 0.25rem;
 }
+
+.testimonial-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-top: 0.5rem;
+}
+
+.testimonial-content::-webkit-scrollbar {
+  width: 6px;
+}
+.testimonial-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+
 
 #prevBtn, #nextBtn {
   background-color: #00838f;
