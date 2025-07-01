@@ -117,15 +117,6 @@ footer {
   position: relative;
 }
 
-/*.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
-}*/
-
 .carousel {
   display: flex;
   justify-content: center;
